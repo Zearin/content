@@ -52,11 +52,13 @@ if (window.AmbientLightSensor) {
 
 ### Defensive programming
 
-As stated in Feature Detection, checking for a particular sensor API is insufficient for feature detection. The existence of an actual sensor must be confirmed as well. This is where defensive programming is needed. Defensive programming requires three strategies.
+As stated in Feature Detection, checking for a particular sensor API is insufficient for feature detection. The existence of an actual sensor must be confirmed as well. This is where _defensive programming_ is needed. 
 
-- Checking for thrown errors when instantiating a sensor object.
-- Listening for errors thrown during its use.
-- Handling the errors gracefully so that the user experience is enhanced rather than degraded.
+Defensive programming requires three strategies:
+
+1. Checking for thrown errors when instantiating a sensor object.
+2. Listening for errors thrown during its use.
+3. Handling the errors gracefully so that the user experience is enhanced rather than degraded.
 
 The code example below illustrates these principles. The {{jsxref('statements/try...catch', 'try...catch')}} block catches errors thrown during sensor instantiation. It listens for {{domxref('Sensor.error_event', 'error')}} events to catch errors thrown during use. The only time anything is shown to the user is when [permissions](/en-US/docs/Web/API/Permissions_API) need to be requested and when the sensor type isn't supported by the device.
 
